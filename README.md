@@ -3,7 +3,7 @@
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
 
 ## Game Website
-Link to online game - 
+Link to online game - https://apolon23.github.io/mini-reaction-game
 
 ## Development server
 

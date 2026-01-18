@@ -1,0 +1,11 @@
+<div class="grid">
+  @for (cell of game.grid(); track cell; let i = $index) {
+    <button
+      class="cell"
+      [class.active]="cell === CellState.ACTIVE"
+      [class.success]="cell === CellState.SUCCESS"
+      [class.fail]="cell === CellState.FAIL"
+      (click)="game.clickCell(i)">
+    </button>
+  }
+</div>

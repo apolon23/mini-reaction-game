@@ -1,0 +1,68 @@
+.panel {
+  display: grid;
+  gap: 16px;
+
+  &__scores {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__controls {
+    display: grid;
+    grid-template-columns: 1fr minmax(150px, auto);
+    gap: 12px;
+  }
+
+  &__input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+  }
+
+  &__btn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #22c55e;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.15s;
+
+    &:hover {
+      background-color: #20bb59;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__error {
+    font-size: 14px;
+    color: #f87171;
+  }
+}
+
+@media (max-width: 576px) {
+  .panel {
+    &__scores {
+      font-size: 18px;
+    }
+
+    &__controls {
+      grid-template-columns: 1fr auto;
+    }
+  }
+}
+
+
+
+
+
+

@@ -1,11 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { GamePageComponent } from './components';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [GamePageComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class App {
-  protected readonly title = signal('mini-game');
-}
+export class App {}

@@ -1,0 +1,24 @@
+<div class="panel" [formGroup]="form">
+  <div class="panel__scores">
+    Player: {{ game.playerScore() }} - Computer: {{ game.computerScore() }}
+  </div>
+
+  <div class="panel__controls">
+    <input class="panel__input" type="number" formControlName="time" />
+
+    <button
+      class="panel__btn"
+      type="button"
+      (click)="start()"
+      [disabled]="form.invalid || game.isRunning()"
+    >
+      Start
+    </button>
+  </div>
+
+  @if (form.controls.time.invalid && form.controls.time.dirty) {
+    <div class="panel__error">
+      Minimum reaction time is 100 ms
+    </div>
+  }
+</div>

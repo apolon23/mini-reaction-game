@@ -1,0 +1,16 @@
+<div class="page">
+  <h1 class="page__title">Reaction Game</h1>
+
+  <app-control-panel (startGame)="onStartGame()" />
+
+  <div #gridAnchor>
+    <app-grid />
+  </div>
+
+  @if (game.showResultModal()) {
+    <app-modal (close)="game.reset()">
+      <h2 class="page__modal__title">The winner is: {{ game.winner() }}</h2>
+      <button class="page__modal__btn" (click)="game.reset()">Restart</button>
+    </app-modal>
+  }
+</div>

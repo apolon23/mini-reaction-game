@@ -1,0 +1,30 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #2563eb;
+  transition: 0.2s;
+
+  &:active {
+    transform: scale(0.92);
+  }
+
+  &.active {
+    background: #facc15;
+  }
+
+  &.success {
+    background: #22c55e;
+  }
+
+  &.fail {
+    background: #ef4444;
+  }
+}

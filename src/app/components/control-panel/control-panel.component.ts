@@ -14,8 +14,8 @@ export class ControlPanelComponent {
   private readonly fb = inject(FormBuilder)
   public readonly game = inject(GameService)
 
-  public readonly form = this.fb.nonNullable.group({
-    time: [1000, [Validators.required, Validators.min(100)]],
+  public readonly form = this.fb.group({
+    time: [null, [Validators.required, Validators.min(100)]],
   })
 
   @Output()
@@ -23,8 +23,8 @@ export class ControlPanelComponent {
 
   public start(): void {
     if (this.form.invalid) return
-
     const time = this.form.controls.time.value
+    if (time === null) return
     this.game.startGame(time)
     this.startGame.emit()
   }

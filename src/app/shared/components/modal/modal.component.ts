@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Output } from '@angular/core'
 
 @Component({
   standalone: true,
@@ -10,6 +10,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
 export class ModalComponent {
   @Output()
   public close = new EventEmitter<void>()
+
+  @HostListener('document:keydown.escape')
+  public onEscKey(): void {
+    this.close.emit()
+  }
 
   public onBackdropClick(): void {
     this.close.emit()

@@ -1,6 +1,15 @@
 <div class="page">
-  <h1 class="page__title">Reaction Game</h1>
+  <div class="page__header">
+    <h1 class="page__title">Reaction Game</h1>
 
+    <button
+      class="page__rules-btn"
+      [disabled]="game.isRunning()"
+      (click)="showRules.set(true)"
+    >
+      Rules
+    </button>
+  </div>
   <app-control-panel (startGame)="onStartGame()" />
 
   <div #gridAnchor>
@@ -11,6 +20,27 @@
     <app-modal (close)="game.reset()">
       <h2 class="page__modal__title">The winner is: {{ game.winner() }}</h2>
       <button class="page__modal__btn" (click)="game.reset()">Restart</button>
+    </app-modal>
+  }
+
+  @if (showRules()) {
+    <app-modal (close)="showRules.set(false)">
+      <h2 class="page__modal__title">How to play</h2>
+
+      <div class="page__rules-text">
+        <p>1. Choose the reaction time and press <b>Start</b>.</p>
+        <p>2. A random blue cell will turn <b>yellow</b>. Click it before time runs out.</p>
+        <p>3. If you are fast enough — it turns <b>green</b> and you get <b>1 point</b>.</p>
+        <p>4. If you are too slow — it turns <b>red</b> and the computer gets <b>1 point</b>.</p>
+        <p><b>First to reach 10 points wins.</b></p>
+      </div>
+
+      <button
+        class="page__modal__btn"
+        (click)="showRules.set(false)"
+      >
+        Got it
+      </button>
     </app-modal>
   }
 </div>

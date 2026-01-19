@@ -5,8 +5,40 @@
   display: grid;
   gap: 24px;
 
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
   &__title {
     font-size: 30px;
+  }
+
+  &__rules-btn {
+    padding: 4px 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f5f7fa;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #e9edf3;
+    }
+
+    &:disabled {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+  }
+
+  &__rules-text {
+    max-width: 600px;
+    margin: 16px 0 24px;
+    line-height: 1.5;
+    color: #f8f9fa;
   }
 
   &__modal {
